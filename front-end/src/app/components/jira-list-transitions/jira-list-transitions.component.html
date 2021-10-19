@@ -1,0 +1,125 @@
+<mat-sidenav-container class="main-container">
+  <mat-sidenav mode="side" opened>
+
+    <h2>Gitlab Project Settings</h2>
+    <form [formGroup]="projectToken">
+      <mat-form-field appearance="outline">
+        <mat-label>Enter Gitlab Project Token</mat-label>
+        <input matInput formControlName="token"/>
+      </mat-form-field>
+      <button mat-flat-button color="accent" (click)="saveGitlabToken()">Save Project Token</button>
+    </form>
+
+    <mat-list>
+      <h3>Gitlab Projects</h3>
+      <mat-action-list *ngFor="let project of availableProjects">
+        <button mat-list-item (click)="selectProject(project)">{{project.name}}</button>
+      </mat-action-list>
+    </mat-list>
+
+  </mat-sidenav>
+
+  <div class="example-task">
+    <div>Enter a task from a Jira Board that you want to associate</div>
+
+    <form [formGroup]="jiraTransitionSearch">
+      <div style="display: flex; flex-direction: column;">
+        <mat-form-field appearance="standard">
+          <mat-label>example task code</mat-label>
+          <input matInput formControlName="exampleTask" placeholder="task code">
+        </mat-form-field>
+      </div>
+      <div style="display: flex; justify-content: flex-end; margin-right: 35px;">
+        <button (click)="doSearch()" mat-raised-button color="accent">Search</button>
+      </div>
+    </form>
+  </div>
+
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <h1>Select Events</h1>
+    <mat-form-field appearance="fill">
+      <mat-label>Branch for: {{selectedProjectName?.name}}</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let food of todo" [value]="food?.name">
+          {{food?.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="list-container">
+    <section class="hook-events">
+      <mat-checkbox class="hook-event-item" [(ngModel)]="pushEvents">Push Events</mat-checkbox>
+      <mat-checkbox class="hook-event-item" [(ngModel)]="TagPushEvents">Tag Push Events</mat-checkbox>
+      <mat-checkbox class="hook-event-item" [(ngModel)]="commentEvents">Comments</mat-checkbox>
+      <mat-checkbox class="hook-event-item" [(ngModel)]="confidentialCommentEvents">Confidential Comments</mat-checkbox>
+      <mat-checkbox class="hook-event-item" [(ngModel)]="issueEvents">Issue Events</mat-checkbox>
+      <mat-checkbox class="hook-event-item" [(ngModel)]="confidentialIssueEvents">Confidential issue events</mat-checkbox>
+      <mat-checkbox class="hooked-event-item" [(ngModel)]="mrEvents">Merge Request Events</mat-checkbox>
+      <mat-checkbox class="hooked-event-item" [(ngModel)]="jobEvents">Job events</mat-checkbox>
+      <mat-checkbox class="hooked-event-item" [(ngModel)]="pipelineEvents">Pipeline events</mat-checkbox>
+      <mat-checkbox class="hooked-event-item" [(ngModel)]="wikiPageEvents">wiki page events</mat-checkbox>
+      <mat-checkbox class="hooked-event-item" [(ngModel)]="deployEvents">deployment events</mat-checkbox>
+      <mat-checkbox class="hooked-event-item" [(ngModel)]="featureFlagEvents">feature flag events</mat-checkbox>
+      <mat-checkbox class="hooked-event-item" [(ngModel)]="releaseEvents">release events</mat-checkbox>
+
+    </section>
+  </div>
+
+
+  <!--<div class="list-container">-->
+
+  <!--  <mat-list>-->
+  <!--     {{selectedProjectName?.name}} Branches-->
+  <!--    <mat-list-item>-->
+
+  <!--    </mat-list-item>-->
+  <!--  </mat-list>-->
+  <!--  <mat-list>-->
+  <!--    Jira Transitions-->
+  <!--    <mat-list-item>-->
+  <!--      In progress-->
+  <!--    </mat-list-item>-->
+  <!--    <mat-list-item *ngFor="let issue of (jiraService.$availableTransitions | async)?.transitions">-->
+  <!--      {{issue.name}}-->
+  <!--      <button mat-flat-button (click)="makeWebHook(issue)">Create Webhook</button>-->
+  <!--    </mat-list-item>-->
+  <!--  </mat-list>-->
+  <!--</div>-->
+
+<!--  <div class="list-container">-->
+<!--    <div class="example-container">-->
+<!--      <h2>  {{selectedProjectName?.name}} Branches</h2>-->
+
+<!--      <div-->
+<!--        cdkDropList-->
+<!--        #todoList="cdkDropList"-->
+<!--        [cdkDropListData]="todo"-->
+<!--        [cdkDropListConnectedTo]="[doneList]"-->
+<!--        class="example-list"-->
+<!--        (cdkDropListDropped)="drop($event)">-->
+<!--        <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item.name}}</div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="example-container">-->
+<!--      <h2>Jira Transitions {{jiraProjectName?.fields?.project?.name}}</h2>-->
+
+<!--      <div-->
+<!--        cdkDropList-->
+<!--        #doneList="cdkDropList"-->
+<!--        [cdkDropListData]="done"-->
+<!--        [cdkDropListConnectedTo]="[todoList]"-->
+<!--        class="example-list"-->
+<!--        (cdkDropListDropped)="drop($event)">-->
+<!--        <div class="example-box" *ngFor="let item of done" cdkDrag>{{item?.name}}</div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+
+</mat-sidenav-container>
+
+
+
+
+

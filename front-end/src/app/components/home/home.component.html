@@ -1,0 +1,39 @@
+<div class="login-container">
+  <div class="login-card">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+      <div class="vertical-spacer"></div>
+      <div class="login-avatar">
+        <img mat-card-avatar style="width: 50%; height: 50%;" src="https://www.w3schools.com/howto/img_avatar.png" alt="Photo of a Shiba Inu">
+      </div>
+      <div class="vertical-spacer"></div>
+      <div class="vertical-spacer"></div>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item>
+            <div class="list-item">
+              <img mat-list-avatar src="assets/jira.png"/>
+              Jira
+              <div style="width: 40%;"></div>
+              <button mat-flat-button color="accent">
+                <a href="https://auth.atlassian.com/authorize?audience=api.atlassian.com&client_id=M70ubPh4KE6JG1OArbSA5ahJH4Etn27g&scope=read%3Ajira-work%20manage%3Ajira-project%20read%3Ajira-user%20manage%3Ajira-webhook%20write%3Ajira-work&redirect_uri=https%3A%2F%2Fmenu-ordering-system.com&state=${YOUR_USER_BOUND_VALUE}&response_type=code&prompt=consent">
+                  Jira Login
+                </a>
+              </button>
+            </div>
+          </mat-list-item>
+        </mat-list>
+        <div class="vertical-spacer"></div>
+        <div class="vertical-spacer"></div>
+        <p>
+          Please authenticate against jira
+        </p>
+      </mat-card-content>
+
+    </mat-card>
+
+  </div>
+</div>
+

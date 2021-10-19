@@ -1,0 +1,7 @@
+{
+  "/rest/api/*": {
+    "target": "https://ordered.atlassian.net",
+    "secure": true,
+    "changeOrigin": true
+  }
+}
